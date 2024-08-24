@@ -31,8 +31,19 @@
 
         <!-- Phone display grid section -->
         <section>
+            <!-- Loader -->
+            <div id="loading-spinner" class="text-center hidden">
+                <span class="loading loading-dots loading-lg text-primary"></span>
+            </div>
+
+            <!-- Phone display grid -->
             <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <!-- Actual content will be dynamically generated and appended here -->
+            </div>
+
+            <!-- Show All button container -->
+            <div id="show-all-container" class="hidden mt-4 text-center">
+                <button class="btn btn-accent" onclick="handleShowAll()">Show All</button>
             </div>
         </section>
     </main>
