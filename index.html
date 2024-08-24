@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,18 +8,36 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
+    <!-- Header section with a centered title -->
     <header class="p-4 bg-gray-100 text-center"> 
         <h2 class="text-6xl font-bold">Hunting Phone</h2>
     </header>
+
+    <!-- Main content area -->
     <main class="p-4">
+        <section class="bg-gray-100 p-4 mb-4 rounded-lg">
+            <!-- Search input with button -->
+            <form class="flex items-center space-x-2" onsubmit="event.preventDefault(); handleSearch();">
+                <input
+                    type="text"
+                    id="search-field"  
+                    placeholder="Search..."
+                    class="input input-bordered input-secondary w-full max-w-xs"
+                    aria-label="Search for a phone"
+                />
+                <button onclick="handleSearch()" class="btn btn-outline btn-accent" type="button">Search</button>
+            </form>
+        </section>
+
+        <!-- Phone display grid section -->
         <section>
-            <!-- Corrected grid container with proper class usage -->
             <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <!-- Sample card structure -->
                 <!-- Actual content will be dynamically generated and appended here -->
             </div>
         </section>
     </main>
+
+    <!-- Footer section -->
     <footer class="p-4 bg-gray-100 text-center"> 
         <p>&copy; 2024 Hunting Phone API. All rights reserved.</p>
     </footer>

@@ -1,28 +1,26 @@
-const loadPhone = async () => {
+const loadPhone = async (searchText = 'iphone') => {
     try {
-        const res = await fetch('https://openapi.programming-hero.com/api/phones?search=iphone');
+        const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`);
         const data = await res.json();
-        console.log(data.data);
-        displayPhone(data.data); // Pass the data to the displayPhone function
+        displayPhone(data.data);
     } catch (error) {
         console.error('Error occurred:', error);
     }
 }
 
 const displayPhone = phones => {
-    const phoneContainer = document.getElementById('phone-container'); // Corrected 'Phone-container' to 'phone-container'
+    const phoneContainer = document.getElementById('phone-container');
+    phoneContainer.innerHTML = ''; // Clear previous results
 
     phones.forEach(phone => {
-        console.log(phone);
-
         // Create a new div element for each phone
         const phoneCard = document.createElement('div');
-        phoneCard.classList = 'card w-96 bg-gray-100 shadow-xl'; // Corrected class name and syntax
+        phoneCard.classList = 'card w-96 bg-gray-100 shadow-xl';
 
         // Set the inner HTML for the phone card
         phoneCard.innerHTML = `
             <figure>
-                <img src="${phone.image}"alt="${phone.phone_name}" />
+                <img src="${phone.image}" alt="${phone.phone_name}" />
             </figure>
             <div class="card-body">
                 <h2 class="card-title">
@@ -43,5 +41,18 @@ const displayPhone = phones => {
     });
 }
 
-// Call the function to load phones
+// Function to handle search input
+const handleSearch = () => {
+    const searchField = document.getElementById('search-field'); // Reference to search input field
+    const searchText = searchField.value.trim();
+
+    if (searchText) {
+        loadPhone(searchText); // Call loadPhone function with the search text
+    } else {
+        console.log('Please enter a search term.');
+        phoneContainer.innerHTML = '<p class="text-center text-red-500">Please enter a search term to find phones.</p>';
+    }
+}
+
+// Call the function to load default phones
 loadPhone();
