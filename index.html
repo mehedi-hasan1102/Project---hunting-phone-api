@@ -48,6 +48,22 @@
         </section>
     </main>
 
+    <!-- Modal -->
+    <div id="phone-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white rounded-lg w-3/4 md:w-1/2 lg:w-1/3 p-6">
+            <div class="flex justify-between items-center">
+                <h2 id="modal-title" class="text-2xl font-bold">Phone Details</h2>
+                <button onclick="closeModal()" class="text-red-500">&times;</button>
+            </div>
+            <div id="modal-body" class="mt-4">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+            <div class="flex justify-end mt-4">
+                <button onclick="closeModal()" class="btn btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer section -->
     <footer class="p-4 bg-gray-100 text-center"> 
         <p>&copy; 2024 Hunting Phone API. All rights reserved.</p>
