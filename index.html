@@ -14,15 +14,15 @@
     </header>
 
     <!-- Main content area -->
-    <main class="p-4">
-        <section class="bg-gray-100 p-4 mb-4 rounded-lg">
+    <main class="p-4 flex flex-col items-center">
+        <section class="bg-gray-100 p-4 mb-4 rounded-lg w-full max-w-lg">
             <!-- Search input with button -->
             <form class="flex items-center space-x-2" onsubmit="event.preventDefault(); handleSearch();">
                 <input
                     type="text"
                     id="search-field"  
                     placeholder="Search..."
-                    class="input input-bordered input-secondary w-full max-w-xs"
+                    class="input input-bordered input-secondary w-full"
                     aria-label="Search for a phone"
                 />
                 <button onclick="handleSearch()" class="btn btn-outline btn-accent" type="button">Search</button>
@@ -30,7 +30,7 @@
         </section>
 
         <!-- Phone display grid section -->
-        <section>
+        <section class="w-full">
             <!-- Loader -->
             <div id="loading-spinner" class="text-center hidden">
                 <span class="loading loading-dots loading-lg text-primary"></span>
